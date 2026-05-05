@@ -19,6 +19,9 @@ start_time = time.perf_counter()
 # Generate Combinations from Gen_Grid
 combinations = Gen_Grid()
 
+# Print combinations for reference
+print('\n There are', len(combinations), 'combinations to be tested \n')
+
 # Choose training set
 train_list = BAD_TRAIN + GOOD_TRAIN # just using 2 for now
 Good_Match_Report = [] # placeholder, need to fill in with better way of finding this

@@ -57,7 +57,7 @@ start_time = time.perf_counter()
 opt = BayesSearchCV(
     AI_Regression(),
     Range,
-    n_iter = 1, # test 15 combinations based on 'Regression_Iteration_Test.py'
+    n_iter = 15, # test 15 combinations based on 'Regression_Iteration_Test.py'
     random_state = 0
 )
 
