@@ -8,7 +8,7 @@
 
 import time
 from Class import Image
-from Train_Data import BAD_TRAIN, GOOD_TRAIN
+from Calibrate_Data import BAD_CALIBRATE, GOOD_CALIBRATE
 from Generate_Grid import Gen_Grid
 import pandas as pd
 import plotly.express as px
@@ -22,13 +22,13 @@ combinations = Gen_Grid()
 # Print combinations for reference
 print('\n There are', len(combinations), 'combinations to be tested \n')
 
-# Choose training set
-train_list = BAD_TRAIN + GOOD_TRAIN # just using 2 for now
+# Choose calibrate set
+calibrate_list = BAD_CALIBRATE + GOOD_CALIBRATE # just using 2 for now
 Good_Match_Report = [] # placeholder, need to fill in with better way of finding this
-test = train_list[0]
+test = calibrate_list[0]
 
 # Generate the correct match report
-for img in train_list:
+for img in calibrate_list:
     label = Image(img)
     #label.display() # display the original images when wanted
     label = label.get_label()
@@ -40,7 +40,7 @@ Good_Report_List = []
 plot_data = []
 for r, s, w in combinations:
     match_report = []
-    for img in train_list:
+    for img in calibrate_list:
         
         test = Image(img) # load in Image class for the chosen photo    
         total_white, _ = test.get_all(r, s)

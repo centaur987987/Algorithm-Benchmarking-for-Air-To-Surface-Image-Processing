@@ -14,11 +14,11 @@ r = 6
 s = .026634723264151408
 w = 38927
 
-#Generate Test List
-train_list = BAD_TEST + GOOD_TEST
+#Generate Calibrate List
+calibrate_list = BAD_TEST + GOOD_TEST
 
 accuracy_list = []
-for img in train_list:
+for img in calibrate_list:
     test = Image(img) # load in Image class for the chosen photo
     [total_white, label] = test.get_all_test(r, s)
     print("label =", label)
@@ -35,5 +35,5 @@ for img in train_list:
     else:
         print(img)
     print(" ")
-print("Accuracy = ", len(accuracy_list) / len(train_list) * 100, "%")
+print("Accuracy = ", len(accuracy_list) / len(calibrate_list) * 100, "%")
   

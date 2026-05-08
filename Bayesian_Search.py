@@ -11,7 +11,7 @@ import time
 from skopt import BayesSearchCV
 from sklearn.base import BaseEstimator
 from Class import Image
-from Train_Data import BAD_TRAIN, GOOD_TRAIN
+from Calibrate_Data import BAD_CALIBRATE, GOOD_CALIBRATE
 
 import pandas as pd
 import plotly.express as px
@@ -41,8 +41,8 @@ class AI_Regression(BaseEstimator):
         return sum(1 for i, j in zip(match_report, y) if i == j) / len(y)
 
 # Setup Data
-train_list = BAD_TRAIN + GOOD_TRAIN
-Labels = [Image(img).get_label() for img in train_list]
+calibrate_list = BAD_CALIBRATE + GOOD_CALIBRATE
+Labels = [Image(img).get_label() for img in calibrate_list]
 
 # Complete Regression
 Range = {
@@ -61,7 +61,7 @@ opt = BayesSearchCV(
     random_state = 0
 )
 
-opt.fit(train_list, Labels)
+opt.fit(calibrate_list, Labels)
 
 # end time
 end_time = time.perf_counter()

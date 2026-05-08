@@ -33,10 +33,10 @@ class Image:
     # print the path of the image based on whether or not the name includes "BAD". This requires all bad files to be labeled as such
     def get_path(self):
         if "BAD" in self.name:
-            self.path = Path("Photos/Train_Set/Bad")
+            self.path = Path("Photos/Calibrate_Set/Bad")
             self.label = 0
         else:
-            self.path = Path("Photos/Train_Set/Good")
+            self.path = Path("Photos/Calibrate_Set/Good")
             self.label = 1 
         print(self.path / self.name)
         return self.path
@@ -53,10 +53,10 @@ class Image:
     # Display the image
     def display(self):
         if "BAD" in self.name:
-            self.path = Path("Photos/Train_Set/Bad")
+            self.path = Path("Photos/Calibrate_Set/Bad")
             self.label = 0
         else:
-            self.path = Path("Photos/Train_Set/Good")
+            self.path = Path("Photos/Calibrate_Set/Good")
             self.label = 1 
         print(self.path / self.name)
         full_path = (self.path / self.name).resolve()
@@ -111,10 +111,10 @@ class Image:
         
         # get path
         if "BAD" in self.name:
-            self.path = Path("Photos/Train_Set/Bad")
+            self.path = Path("Photos/Calibrate_Set/Bad")
             self.label = 0
         else:
-            self.path = Path("Photos/Train_Set/Good")
+            self.path = Path("Photos/Calibrate_Set/Good")
             self.label = 1    
 
         # import image
