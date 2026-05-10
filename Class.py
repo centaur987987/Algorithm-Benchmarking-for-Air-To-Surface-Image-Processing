@@ -78,12 +78,26 @@ class Image:
 
     # Display the entropy of the image
     def get_entropy(self, r):
+        # 1. You MUST load the image here if it wasn't loaded yet
+        if not hasattr(self, 'img') or self.img is None:
+            if "BAD" in self.name:
+                self.path = Path("Photos/Test_Set/Bad")
+            else:
+                self.path = Path("Photos/Test_Set/Good")
+            
+            self.img = cv2.imread(str(self.path / self.name), cv2.IMREAD_GRAYSCALE)
+
+        # 2. Check if it actually loaded
+        if self.img is None:
+            print(f"Error: Could not load {self.name}. Check your paths!")
+            return None
+
+        # 3. Now run the entropy
         self.entropy = entropy(self.img, disk(r))
         plt.figure(1)
         plt.imshow(self.entropy, cmap='magma')
         plt.title('Entropy Image')
         plt.show()
-        cv2.waitKey(0)
         return self.entropy
     
     #Display threshold of image
