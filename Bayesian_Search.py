@@ -18,7 +18,7 @@ import plotly.express as px
 
 # Initial Setup
 class AI_Regression(BaseEstimator):
-    def __init__(self, r=3, s=0.1, w=50000):
+    def __init__(self, r=5, s=0.5, w=50000):
         self.r = r
         self.s = s
         self.w = w
@@ -57,7 +57,7 @@ start_time = time.perf_counter()
 opt = BayesSearchCV(
     AI_Regression(),
     Range,
-    n_iter = 15, # test 15 combinations based on 'Regression_Iteration_Test.py'
+    n_iter = 27, 
     random_state = 0
 )
 
